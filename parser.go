@@ -56,6 +56,8 @@ func (this AdvertisementParser) Parse(filename string) Advertisement {
 
       var itemObject AdvertisementTracking
       itemObject.Value = item.Text()
+      itemObject.Event = item.SelectAttrValue("event", "")
+      itemObject.Offset = item.SelectAttrValue("offset", "")
 
       ads.Trackings = append(ads.Trackings, itemObject)
     }

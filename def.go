@@ -10,6 +10,8 @@ type AdvertisementVideo struct {
 
 type AdvertisementTracking struct {
 	Value string
+	Event string
+	Offset string
 }
 
 type Advertisement struct {
