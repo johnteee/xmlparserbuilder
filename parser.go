@@ -39,6 +39,10 @@ func (this AdvertisementParser) Parse(filename string) Advertisement {
 
       var itemObject AdvertisementVideo
       itemObject.Value = item.Text()
+      itemObject.Duration = item.SelectAttrValue("duration", "")
+      itemObject.Type = item.SelectAttrValue("type", "")
+      itemObject.Width = item.SelectAttrValue("width", "")
+      itemObject.Height = item.SelectAttrValue("height", "")
 
       ads.Videos = append(ads.Videos, itemObject)
     }
