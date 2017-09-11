@@ -1,0 +1,13 @@
+<Advertisement>
+    <Title>title</Title>
+    <Description>description</Description>
+    <Icon>http://icon/</Icon>
+    <Videos>
+        <Video type="mp4" width="800" height="480" duration="00:30:00.000">http://video1/</Video>
+        <Video type="mp4" width="800" height="480" duration="00:15:00.000">http://video2/</Video>
+    </Videos>
+    <Trackings>
+        <Tracking event="impression" offset="00:00:01.000">http://impression/</Tracking>
+        <Tracking event="view" offset="00:00:03.000">http://view/</Tracking>
+    </Trackings>
+</Advertisement>
