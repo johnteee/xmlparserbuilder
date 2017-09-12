@@ -2,10 +2,25 @@ package main
 
 import (
   "github.com/beevik/etree"
+  "io/ioutil"
+  "encoding/xml"
   // "fmt"
   )
 
 type AdvertisementParser struct {
+}
+
+func (this AdvertisementParser) ParseByUnmarshal(filename string) Advertisement {
+  var data []byte
+  var err error
+  data, err = ioutil.ReadFile(filename)
+  if err != nil {
+      panic(err)
+  }
+
+  var ads Advertisement;
+  err = xml.Unmarshal(data, &ads)
+  return ads
 }
 
 func (this AdvertisementParser) Parse(filename string) Advertisement {
