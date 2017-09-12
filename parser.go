@@ -10,23 +10,23 @@ import (
 type AdvertisementParser struct {
 }
 
-func (this AdvertisementParser) ParseByUnmarshal(filename string) Advertisement {
+func (this AdvertisementParser) ParseByUnmarshal(filename string) (Advertisement, error) {
   var data []byte
   var err error
   data, err = ioutil.ReadFile(filename)
   if err != nil {
-      panic(err)
+      return Advertisement{}, err
   }
 
   var ads Advertisement;
   err = xml.Unmarshal(data, &ads)
-  return ads
+  return ads, nil
 }
 
-func (this AdvertisementParser) Parse(filename string) Advertisement {
+func (this AdvertisementParser) ParseByEtree(filename string) (Advertisement, error) {
   doc := etree.NewDocument()
   if err := doc.ReadFromFile(filename); err != nil {
-      panic(err)
+      return Advertisement{}, err
   }
 
   ads := Advertisement{}
@@ -78,5 +78,5 @@ func (this AdvertisementParser) Parse(filename string) Advertisement {
     }
   }
 
-  return ads
+  return ads, nil
 }
